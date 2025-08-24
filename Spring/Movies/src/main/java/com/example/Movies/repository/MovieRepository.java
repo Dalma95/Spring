@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.*;
 
 @Repository
-public class MovieRepsitory {
+public class MovieRepository {
     private Map<String, Movie> movies = new HashMap<>();
 
     public List<Movie> findAll(){

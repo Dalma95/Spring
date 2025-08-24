@@ -1,7 +1,7 @@
 package com.example.Movies.service;
 
 import com.example.Movies.model.Movie;
-import com.example.Movies.repository.MovieRepsitory;
+import com.example.Movies.repository.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +11,7 @@ import java.util.Optional;
 @Service
 public class MovieService {
     @Autowired
-    private MovieRepsitory repository;
+    private MovieRepository repository;
 
     public List<Movie> findAll(){
         return repository.findAll();
