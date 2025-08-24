@@ -10,7 +10,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/movies")
-
 public class MovieController {
 
     @Autowired
@@ -24,7 +23,7 @@ public class MovieController {
     @GetMapping("/{title}")
     public ResponseEntity<Movie> getMovieByTitle(@PathVariable String title){
         return service.findByTitle(title)
-                .map(ResponseEntity :: ok)
+                .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
@@ -34,9 +33,8 @@ public class MovieController {
     }
 
     @DeleteMapping("/{title}")
-    public ResponseEntity<Void> deleteMovie(@PathVariable String title){
+    public ResponseEntity<Movie> deleteMovie(String title){
         service.delete(title);
         return ResponseEntity.noContent().build();
     }
 }
-

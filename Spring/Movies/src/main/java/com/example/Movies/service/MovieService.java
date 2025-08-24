@@ -1,7 +1,7 @@
 package com.example.Movies.service;
 
 import com.example.Movies.model.Movie;
-import com.example.Movies.repository.MovieRepository;
+import com.example.Movies.repository.MovieRepsitory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +10,8 @@ import java.util.Optional;
 
 @Service
 public class MovieService {
-
     @Autowired
-    private MovieRepository repository;
+    private MovieRepsitory repository;
 
     public List<Movie> findAll(){
         return repository.findAll();
@@ -22,11 +21,12 @@ public class MovieService {
         return repository.findByTitle(title);
     }
 
-    public Movie save(Movie movie){
+    public Movie save (Movie movie){
         return repository.save(movie);
     }
 
     public void delete(String title){
         repository.delete(title);
     }
+
 }

@@ -5,15 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-
+@AllArgsConstructor
 public class Movie {
 
     private String title;
     private String director;
-    private int releaseDate;
+    private int releaseYear;
     private double rating;
 
 }
-
