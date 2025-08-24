@@ -1,6 +1,8 @@
 package com.example.Movies.repository;
 
 import com.example.Movies.model.Movie;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Repository;
 
 import java.util.*;
@@ -24,5 +26,15 @@ public class MovieRepository {
 
     public void delete(String title){
         movies.remove(title);
+    }
+
+    @PostConstruct
+    public void init(){
+        System.out.println("Bean Repository was initialized.");
+    }
+
+    @PreDestroy
+    public void shutDown(){
+        System.out.println("Bean Repository is being destroyd.");
     }
 }
