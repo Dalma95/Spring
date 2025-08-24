@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Cars</title>
+</head>
+<body>
+<h1>Car List</h1>
+<ul>
+    <li th:each="c : ${cars}">
+        <strong th:text="${c.brand}">Brand</strong> - <em th:text="${c.model}">Model</em>
+    </li>
+</ul>
+
+<h2>Add a New Car</h2>
+<form th:action="@{/cars}" th:object="${newCar}" method="post">
+    <label>Brand: <input type="text" th:field="*{brand}" /></label><br/>
+    <label>Model: <input type="text" th:field="*{model}" /></label><br/>
+    <button type="submit">Add</button>
+</form>
+</body>
+</html>
