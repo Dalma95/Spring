@@ -12,14 +12,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "movies")
 public class Movie {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String title;
     private String director;
     private int releaseYear;
     private Double rating;
     private boolean watched;
+
+    @OneToOne(mappedBy = "movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private MovieDetails movieDetails;
 }
