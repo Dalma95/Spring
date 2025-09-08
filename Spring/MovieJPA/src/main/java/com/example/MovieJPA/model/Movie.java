@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 
@@ -40,4 +41,15 @@ public class Movie {
             inverseJoinColumns = @JoinColumn(name = "actor_id"))
     private Set<Actor> actors = new HashSet<>();
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Movie movie = (Movie) o;
+        return Objects.equals(id, movie.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hashCode(id);
+    }
 }
