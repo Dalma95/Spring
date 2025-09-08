@@ -22,6 +22,7 @@ public class Movie {
     private int releaseYear;
     private Double rating;
     private boolean watched;
+    public boolean watchlist;
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "details_id",unique = true)
@@ -52,4 +53,20 @@ public class Movie {
     public int hashCode() {
         return Objects.hashCode(id);
     }
+
+//    @Override
+//    public String toString() {
+//        return "Movie{" +
+//                "id=" + id +
+//                ", title='" + title + '\'' +
+//                ", releaseYear=" + releaseYear +
+//                ", rating=" + rating +
+//                ", watched=" + watched +
+//                ", watchlist=" + watchlist +
+//                ", details=" + details +
+//                ", director=" + director +
+//                ", genre=" + genre +
+//                ", actors=" + actors +
+//                '}';
+//    }
 }

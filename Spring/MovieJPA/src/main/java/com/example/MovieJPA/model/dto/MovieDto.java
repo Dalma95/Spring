@@ -11,6 +11,7 @@ public class MovieDto {
     private String title;
     private int releaseYear;
     private boolean watched;
+    private boolean watchlist;
     private Double rating;
 
     private String genreName;

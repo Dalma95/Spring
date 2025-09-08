@@ -59,5 +59,11 @@ public class MovieController {
                 .map(service::toDto)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(movieDtos);
-    }}
+    }
+    @PutMapping("/watchList/{id}")
+    public ResponseEntity <MovieDto> addToWatchList(@PathVariable Long id, @RequestParam String email){
+        MovieDto updated = service.addMovieToWatchedList(id, email);
+        return ResponseEntity.ok(updated);
+    }
+}
 
