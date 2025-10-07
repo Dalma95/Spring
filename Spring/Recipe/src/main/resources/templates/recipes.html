@@ -1,0 +1,45 @@
+<!-- src/main/resources/templates/recipes.html -->
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Recipe Book</title>
+</head>
+<body>
+<h1>All Recipes</h1>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Ingredients</th>
+            <th>Description</th>
+            <th>Preparation Steps</th>
+            <th>Cooking Time (min)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="r : ${recipes}">
+            <td th:text="${r.title}">Title</td>
+            <td>
+                <ul>
+                    <li th:each="ing : ${r.ingredients}" th:text="${ing}">Ingredient</li>
+                </ul>
+            </td>
+            <td th:text="${r.description}">Description</td>
+            <td th:text="${r.preparationSteps}">Steps</td>
+            <td th:text="${r.cookingTime}">Time</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Add a New Recipe</h2>
+<form th:action="@{/recipes}" th:object="${newRecipe}" method="post">
+    <label>Title: <input type="text" th:field="*{title}" required /></label><br/>
+    <label>Ingredients (comma separated): <input type="text" th:field="*{ingredients}" required /></label><br/>
+    <label>Description: <input type="text" th:field="*{description}" required /></label><br/>
+    <label>Preparation Steps: <textarea th:field="*{preparationSteps}" required></textarea></label><br/>
+    <label>Cooking Time (minutes): <input type="number" th:field="*{cookingTime}" min="1" required /></label><br/>
+    <button type="submit">Add Recipe</button>
+</form>
+</body>
+</html>
